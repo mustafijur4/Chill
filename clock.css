@@ -1,0 +1,59 @@
+
+    body {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Math;
+    }
+
+    .clock {
+      display: flex;
+      gap: 10px;
+      font-size: 5rem;
+      background-color: #222;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #0f0;
+      animation: hueRotate 10s linear infinite;
+      filter: hue-rotate(0deg); /* Start hue */
+    }
+
+    @keyframes hueRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+    .digit {
+      position: relative;
+      width: 3.5rem;
+      height: 5rem;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .digit span {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .digit.animate span {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    .digit.new span {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    .digit.animate.new span {
+      transform: translateY(0%);
+      opacity: 1;
+    }
